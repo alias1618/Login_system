@@ -1,16 +1,12 @@
-<!DOCTYPE html>
 <html>
-<?php session_start();
-?>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>註冊</title>
-			<script>
-			function account_check(account){
-				var account = document.getElementById(account).value;
+	<title>註冊</title>
+		<script>
+			function accountCheck() {
+				var account = document.getElementById("account").value;
+				
 				if (account = ""){
 					document.getElementById("accountAlert").innerHTML= "<font color=red><b>你的帳號前兩個字母必須大寫</b></font>";
-					//window.alert("你的帳號前兩個字母必須大寫"+document.getElementById(account).value);
 				}
 			}
 			
@@ -85,23 +81,22 @@
 				}
 				*/
 		</script>
-		
 	</head>
-	<body>
-
-		<form name="reg_form" action="registration_check.php" method="post">
-			帳號：<input type="text" name="account" id="account" onblur="account_check();"> <?php echo "前2個必須是英文字母";?><br>
+<body>
+	<?php //session_start();?>
+		<form action="registration_insert.php" method="post">
+			帳號：<input type="text" id="account" onblur="accountCheck();"/> <?php echo "前2個必須是英文字母";?><br>
 			<div id="accountAlert">
 			</div>
 			<br>
-			Email：<input type="text" name="email" id="email" onblur="checkEmail();"> <?php echo "xxx@yyyy.zzz";?><br>
+			Email：<input type="text" id="email" onblur="checkEmail();"/> <?php echo "xxx@yyyy.zzz";?><br>
 			<div id="emailAlert">
 			</div>
 			<br>
-			密碼：<input type="password" name="password" id="password" onblur="checkPassword();"> <?php echo "至少6個英數混和與一個大寫字母";?><br>
+			密碼：<input type="password" id="password" onblur="checkPassword();"/> <?php echo "至少6個英數混和與一個大寫字母";?><br>
 			<div id="passwordAlert"></div>
 			<br>
-			密碼確認：<input type="password" name="password_check" id="password_check" onblur="checkTwoPasswords();"> <br>
+			密碼確認：<input type="password" id="password_check" onblur="checkTwoPasswords();"/> <br>
 			<div id="confirm_passwordAlert"></div>
 			<br>
 			國家代碼：
@@ -112,15 +107,15 @@
 				<option value="66">泰國</option>
 				<option value="86">中國</option>
 			</select>
-			手機號碼：<input type="number" name="phone_number" id="phone_number" onblur="number_check"> <br>
+			手機號碼：<input type="number" id="phone_number" onblur="number_check"> <br>
 			<div id="numberdAlert"></div>
 			<br>
 			<!-- 自動設定角色為使用者1 -->
 			<input type="hidden" name="role" value="1"> <br>
 			<br>
-			驗證碼：<input type="number" name="check_code" id="check_code"> &nbsp; <img src="code_born.php" ><br>
+			驗證碼：<input type="number" id="check_code"> &nbsp; <img src="code_born.php" ><br>
 			
-			<p><input type="submit" value="送出"></p>
+			<input type="submit" value="送出">
 		</form>
-	</body>
+</body>
 </html>

@@ -14,7 +14,7 @@ if(isset($_POST['update'])){
 }
 else {
     $sql_query = "SELECT * FROM account WHERE id=$id";
-    $result = $connect->query($sql_query) or die('MySQL query error');
+    $result = $conn->query($sql_query) or die('MySQL query error');
     $row = mysqli_fetch_array($result); 
     //$username =$row['username'];
     $email=$row['email'];

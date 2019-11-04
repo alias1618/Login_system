@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<form name="login_form" action="login_check.php" method="post">
-			姓名：<input type="text" name="account" id="account"><br>
+			帳號：<input type="text" name="account" id="account"><br>
 			<br>
 			密碼：<input type="password" name="password" id="password"> <br>
 			<br>

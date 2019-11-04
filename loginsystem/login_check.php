@@ -20,7 +20,7 @@ if (($username != "") && ($password != "")) {
     
     $sql = "SELECT * FROM account WHERE username = '$username' AND password = '$password'";
     
-    $result = mysqli_query($connect, $sql);
+    $result = mysqli_query($conn, $sql);
     $row_cnt = mysqli_num_rows($result);
     
     if ($row_cnt == false) {
@@ -34,7 +34,7 @@ if (($username != "") && ($password != "")) {
         if ($_SESSION['role'] == 0){
             header("Location: account_management.php");
         }else if ($_SESSION['role'] == 1){
-            header("Location: login_success.html");
+            header("Location: login_success.php");
         }else if ($_SESSION['role'] == 2){
             header("Location: index.php");
             /* 要顯示帳號被封鎖*/
