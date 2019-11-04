@@ -7,7 +7,7 @@
      <?php
      session_start();
      require_once("connect_db.php");
-     if (empty($_SESSION['role'])){
+     if ($_SESSION['role'] == ""){
          header("location:index.php");
      }else if ($_SESSION['role'] != 0){
          header("Location:index.php");

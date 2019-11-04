@@ -1,13 +1,13 @@
 <?php
 session_start();
 require_once("connect_db.php");     
-
+/*
 if (empty($_SESSION['role'])){
     header("location:index.php");
 }
-
+*/
 if ($_POST["typecode"] != $_SESSION["check_code"]){
-    header("Location: index.html");
+    header("Location: index.php");
 }
 
 
@@ -36,7 +36,8 @@ if (($username != "") && ($password != "")) {
         $row = mysqli_fetch_assoc($result);
         $_SESSION['id'] = $row["id"];
         $_SESSION['role'] = $row["role"];
-        header("Location: test_time.php");
+        header("Location: login_record_ip.php");
+        //echo $_SESSION['role'];
         /*
         if ($_SESSION['role'] == 0){
             header("Location: account_management.php");

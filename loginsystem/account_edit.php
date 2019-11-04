@@ -2,7 +2,7 @@
 require_once("connect_db.php");
 session_start();
 
- if (empty($_SESSION['role'])){
+ if ($_SESSION['role'] == ""){
      header("location:index.php");
  }else if ($_SESSION['role'] != 0){
      header("Location:index.php");
@@ -16,7 +16,7 @@ else {
     $sql_query = "SELECT * FROM account WHERE id=$id";
     $result = $conn->query($sql_query) or die('MySQL query error');
     $row = mysqli_fetch_array($result); 
-    //$username =$row['username'];
+    $username =$row['username'];
     $email=$row['email'];
     $password=$row['password'];
     $role=$row['role'];
@@ -60,36 +60,38 @@ else {
         	<label for="id"> id:</label><?php echo $id?>
         	<br>
         	<input type="hidden" name="id" value="<?php echo $id?>" />
-        	<br>
 
-             <label for="email">Email:</label>
-             <Input Type="text" Name="email" id="email"value="<?php echo $email?>" onblur="checkEmail();"/><br>
-             <div id="emailAlert">
-             </div>        
-             <br>
+        	<label for="username"> username:</label><?php echo $username?>
+        	<br>
+			<br>
+            <label for="email">Email:</label>
+            <Input Type="text" Name="email" id="email"value="<?php echo $email?>" onblur="checkEmail();"/><br>
+            <div id="emailAlert">
+            </div>        
+            <br>
          
-             <label for="password">Password:</label>
-             <Input Type="text" Name="password" id="password" value="<?php echo $password?>" onblur="checkPassword();"/><br>
-             <div id="passwordAlert">
-             </div>
-             <br>
+            <label for="password">Password:</label>
+            <Input Type="password" Name="password" id="password" value="<?php echo $password?>" onblur="checkPassword();"/><br>
+            <div id="passwordAlert">
+            </div>
+            <br>
              
-        	 <label for="confirm password">Confirm Password:</label>
-             <Input Type="text" Name="confirm_password" id="confirm_password" onblur="checkTwoPasswords();"/><br>
-             <div id="confirm_passwordAlert">
-             </div>
+        	<label for="confirm password">Confirm Password:</label>
+            <Input Type="password" Name="confirm_password" id="confirm_password" onblur="checkTwoPasswords();"/><br>
+            <div id="confirm_passwordAlert">
+            </div>
              
-             <br>
-             <br>
-             Role：
-             <input type="checkbox" name="role[]" value="0"> 管理者
-             <input type="checkbox" name="role[]" value="1"> 使用者
-             <input type="checkbox" name="role[]" value="2"> 帳號封鎖
-             <br>         
-             <br>
+            <br>
+            <br>
+            Role：
+            <input type="checkbox" name="role[]" value="0"> 管理者
+            <input type="checkbox" name="role[]" value="1"> 使用者
+            <input type="checkbox" name="role[]" value="2"> 帳號封鎖
+            <br>         
+            <br>
         
-             <input type="submit" value="Update" name="update" />
-             <input type="button" value="Cancel" onclick="location.href='account_management.php'">
+            <input type="submit" value="Update" name="update" />
+            <input type="button" value="Cancel" onclick="location.href='account_management.php'">
         </form>
     </body>
 </html>

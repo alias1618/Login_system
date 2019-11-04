@@ -2,10 +2,14 @@
 require_once("connect_db.php");
 session_start();
 
-if (empty($_SESSION['role'])){
+if ($_SESSION['role'] ==""){
     header("location:index.php");
 }else if ($_SESSION['role'] != 0){
     header("Location:index.php");
+}
+//檢查密碼和確認密碼是相同
+if ($_POST['password'] != $_POST['password_check']){
+    header("location:account_edit.php");
 }
 
 $id=$_POST['id'];

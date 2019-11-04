@@ -2,7 +2,7 @@
 session_start();
 require_once("connect_db.php");
 if ($_SESSION['role'] != 0){
-    header("Location: http://localhost/index.php");
+    header("Location:index.php");
 }
 $id = $_GET['id'];
 

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<?php session_start();
+<?php 
+session_start();
+//require_once("connect_db.php");
 //<?php $_SESSION["check_code"] 
+
 ?>
 <html>
 	<head>
