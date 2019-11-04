@@ -118,7 +118,7 @@
 			<!-- 自動設定角色為使用者1 -->
 			<input type="hidden" name="role" value="1"> <br>
 			<br>
-			驗證碼：<input type="number" name="check_code" id="check_code"> &nbsp; <img src="code_born.php" ><br>
+			驗證碼：<input type="number" name="type_code" id="type_code"> &nbsp; <img src="code_born.php" ><br>
 			
 			<p><input type="submit" value="送出"></p>
 		</form>

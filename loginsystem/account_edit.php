@@ -1,12 +1,12 @@
 <?php
-require_once("connnect_db.php");
+require_once("connect_db.php");
 session_start();
-/*
-if ($_SESSION['role'] != 0){
-    header("Location: http://localhost/index.html");
-}
-$role=""; $email=""; //$password="";
-*/
+
+ if (empty($_SESSION['role'])){
+     header("location:index.php");
+ }else if ($_SESSION['role'] != 0){
+     header("Location:index.php");
+ }
 $id=$_GET['id'];//取得ID
 
 if(isset($_POST['update'])){

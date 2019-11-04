@@ -1,6 +1,11 @@
 <?php
 session_start();
 require_once("connnect_db.php");
+if (empty($_SESSION['role'])){
+    header("location:index.php");
+}else if ($_SESSION['role'] != 0){
+    header("Location:index.php");
+}
 
 $id=$_POST['id'];
 

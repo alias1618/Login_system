@@ -6,20 +6,17 @@
     
      <?php
      session_start();
-     if ($_SESSION['role'] != 0){
-         header("Location: http://localhost/index.php");
+     require_once("connect_db.php");
+     if (empty($_SESSION['role'])){
+         header("location:index.php");
+     }else if ($_SESSION['role'] != 0){
+         header("Location:index.php");
      }
-      echo '請輸入資料'."<p>";
-      $_SESSION["email_password_empty"] = false;
-      //$_SESSION["passwordisempty"] = false;
-      $_SESSION["passnotconfirm"] = false;
      ?>
  	<br>
  	<br>
     <table  border="1">
     <tr>
-    	<td>id</td>
-        
         <td>帳號</td>
         
         <td>Email</td>
@@ -32,7 +29,7 @@
     </tr>
 
     <?php
-    require_once("connnet_db.php");
+    
     
     $sql_query = "SELECT * FROM account ";
 
@@ -45,7 +42,7 @@
           $role=$row['role'];
     ?>
         <tr>      
-            <td> <?php echo $username;  ?></td>
+            <td><?php echo $username;  ?></td>
 
             <td><?php echo $email;   ?></td> 
             
