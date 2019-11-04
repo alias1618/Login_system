@@ -1,7 +1,7 @@
 <?php
 session_start();
 $checkcode="";
-
+/*
 //檢查要求使用者所輸入的值是不是為空的
 //檢查驗證碼
 if (empty($_POST["type_code"])){
