@@ -1,6 +1,14 @@
 <?php
 session_start();
-$checkcode="";
+$account=$_POST["account"];
+$email = $_POST["email"];
+$phonenumber = $_POST["phonenumber"];
+
+$sql_query = "SELECT * from account WHERE account ='$account' || email = '$email' || phonenumber = '$phonenumber'";
+$result = $conn->query($sql_query) or die ('MySQL query error');
+$row = mysqli_fetch_array($result);
+
+//$checkcode="";
 /*
 //檢查要求使用者所輸入的值是不是為空的
 //檢查驗證碼
